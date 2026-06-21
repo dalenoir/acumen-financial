@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Partner With Acumen Financial · Broker &amp; ISO Program</title>
+<meta name="description" content="Refer your clients to Acumen Financial's 28-program capital network. Competitive commissions, fast funding, and a dedicated partner desk for brokers, ISOs, consultants, and referral partners." />
+<meta name="theme-color" content="#0A0A24" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0A0A24; --bg-2:#11122F; --bg-3:#171A3A;
+    --surface:rgba(255,255,255,0.04); --surface-2:rgba(255,255,255,0.07);
+    --border:rgba(255,255,255,0.10); --border-strong:rgba(255,255,255,0.17);
+    --text:#F1F1F8; --text-dim:#AEB0CE; --text-faint:#6E7090;
+    --accent:#7C84F0; --accent-deep:#4F58C8; --accent-glow:rgba(124,132,240,0.30);
+    --radius:18px; --maxw:1180px;
+    --serif:'Fraunces',Georgia,serif; --sans:'Hanken Grotesk',-apple-system,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+  .bg-fx{position:fixed;inset:0;z-index:0;pointer-events:none}
+  .bg-fx::before{content:"";position:absolute;inset:0;background:
+    radial-gradient(900px 600px at 12% -5%,rgba(124,132,240,0.10),transparent 60%),
+    radial-gradient(800px 700px at 100% 8%,rgba(124,132,240,0.06),transparent 55%),
+    radial-gradient(700px 600px at 50% 120%,rgba(124,132,240,0.05),transparent 60%)}
+  .bg-fx::after{content:"";position:absolute;inset:0;opacity:0.035;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  .grid-lines{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:64px 64px;opacity:0.25;mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 0%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 0%,transparent 70%)}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  /* nav */
+  header{position:sticky;top:0;z-index:50;transition:all .35s ease}
+  header.scrolled{background:rgba(10,10,36,0.72);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .logo{display:flex;align-items:center;gap:11px;font-weight:600;letter-spacing:.14em;font-size:14px;text-decoration:none;color:var(--text)}
+  .logo .mark{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--accent),var(--accent-deep));display:grid;place-items:center;color:#fff;font-family:var(--serif);font-weight:600;font-size:17px;box-shadow:0 0 24px var(--accent-glow)}
+  .logo .seg{font-size:11px;letter-spacing:.18em;color:var(--accent);background:rgba(124,132,240,0.12);padding:3px 8px;border-radius:5px;border:1px solid var(--border-strong);font-weight:600;margin-left:6px}
+  .nav-links{display:flex;align-items:center;gap:34px}
+  .nav-links a{color:var(--text-dim);text-decoration:none;font-size:14.5px;font-weight:500;transition:color .2s;position:relative}
+  .nav-links a:hover{color:var(--text)}
+  .nav-links a:not(.btn)::after{content:"";position:absolute;left:0;bottom:-5px;width:0;height:1px;background:var(--accent);transition:width .25s}
+  .nav-links a:not(.btn):hover::after{width:100%}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:11px;font-weight:600;font-size:14.5px;text-decoration:none;cursor:pointer;border:none;transition:all .25s;font-family:var(--sans)}
+  .btn-primary{background:#fff;color:#0A0A24;padding:11px 20px;box-shadow:0 6px 22px rgba(0,0,0,0.28)}
+  .btn-primary:hover{transform:translateY(-2px);background:#ECEEFB;box-shadow:0 10px 30px rgba(0,0,0,0.34)}
+  .btn-ghost{background:var(--surface);color:var(--text);padding:11px 20px;border:1px solid var(--border-strong)}
+  .btn-ghost:hover{background:var(--surface-2);border-color:var(--accent)}
+  .nav-toggle{display:none;background:none;border:1px solid var(--border-strong);border-radius:9px;color:var(--text);width:42px;height:38px;cursor:pointer;font-size:18px}
+
+  /* hero */
+  .hero{padding:88px 0 70px;position:relative}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:26px;padding:7px 14px;border:1px solid var(--border-strong);border-radius:100px;background:var(--surface)}
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent)}
+  h1{font-family:var(--serif);font-weight:500;font-size:clamp(2.6rem,6.2vw,5.1rem);line-height:1.02;letter-spacing:-.02em;max-width:15ch}
+  h1 em{font-style:italic;color:var(--accent);font-weight:400}
+  .hero p.lead{font-size:clamp(1.05rem,1.6vw,1.28rem);color:var(--text-dim);max-width:60ch;margin:28px 0 36px;line-height:1.6}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .btn-lg{padding:15px 28px;font-size:15.5px}
+  .hero-trust{display:flex;gap:28px;flex-wrap:wrap;margin-top:48px;padding-top:30px;border-top:1px solid var(--border)}
+  .hero-trust div{display:flex;align-items:center;gap:9px;color:var(--text-dim);font-size:13.5px}
+  .hero-trust svg{flex-shrink:0}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.22,.61,.36,1)}
+  .reveal.in{opacity:1;transform:none}
+  .hero .reveal{transition-delay:var(--d,0s)}
+
+  section{position:relative;z-index:2}
+  .sec{padding:84px 0}
+  .sec-head{max-width:680px;margin-bottom:52px}
+  .sec-tag{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:16px;display:block}
+  .sec-head h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.9rem,3.6vw,2.9rem);line-height:1.08;letter-spacing:-.01em}
+  .sec-head p{color:var(--text-dim);font-size:1.05rem;margin-top:16px;line-height:1.6}
+
+  /* stats */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+  .stat{background:var(--bg-2);padding:34px 26px;text-align:left}
+  .stat .num{font-family:var(--serif);font-size:2.5rem;font-weight:500;line-height:1;color:var(--text);letter-spacing:-.01em}
+  .stat .num span{color:var(--accent)}
+  .stat .lbl{color:var(--text-dim);font-size:13.5px;margin-top:12px;line-height:1.45}
+
+  /* why partner cards */
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:20px}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:32px;backdrop-filter:blur(10px);position:relative;overflow:hidden;transition:transform .35s cubic-bezier(.22,.61,.36,1),border-color .35s,background .35s}
+  .card::before{content:"";position:absolute;inset:0;border-radius:var(--radius);padding:1px;background:linear-gradient(135deg,var(--accent-glow),transparent 40%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .35s}
+  .card:hover{transform:translateY(-6px);border-color:var(--border-strong);background:var(--surface-2)}
+  .card:hover::before{opacity:1}
+  .card .ico{width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,rgba(124,132,240,0.16),rgba(124,132,240,0.04));border:1px solid var(--border-strong);display:grid;place-items:center;margin-bottom:22px;color:var(--accent)}
+  .card h3{font-size:1.18rem;font-weight:600;margin-bottom:10px;letter-spacing:-.01em}
+  .card p{color:var(--text-dim);font-size:14.5px;line-height:1.6}
+
+  /* who we partner with */
+  .partners{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .ptype{padding:28px 24px;border:1px solid var(--border);border-radius:16px;background:var(--surface);transition:all .3s;text-align:center}
+  .ptype:hover{border-color:var(--border-strong);transform:translateY(-4px);background:var(--surface-2)}
+  .ptype .ico{width:48px;height:48px;margin:0 auto 16px;border-radius:13px;background:rgba(124,132,240,0.12);border:1px solid var(--border-strong);display:grid;place-items:center;color:var(--accent)}
+  .ptype h4{font-size:1.05rem;font-weight:600;margin-bottom:7px}
+  .ptype p{color:var(--text-dim);font-size:13px;line-height:1.5}
+
+  /* process */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:10px}
+  .step{position:relative;padding-top:34px}
+  .step .line{position:absolute;top:15px;left:0;right:0;height:1px;background:var(--border)}
+  .step .dot{position:absolute;top:8px;left:0;width:16px;height:16px;border-radius:50%;background:var(--bg);border:2px solid var(--accent);box-shadow:0 0 14px var(--accent-glow);z-index:2}
+  .step .n{font-size:12px;letter-spacing:.18em;color:var(--accent);font-weight:600}
+  .step h4{font-size:1.05rem;font-weight:600;margin:8px 0 7px;letter-spacing:-.01em}
+  .step p{color:var(--text-dim);font-size:13.5px;line-height:1.55}
+
+  /* commission band */
+  .comm{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;background:var(--bg-2);border:1px solid var(--border);border-radius:24px;padding:48px;position:relative;overflow:hidden}
+  .comm::after{content:"";position:absolute;top:-40%;right:-20%;width:420px;height:420px;background:radial-gradient(circle,var(--accent-glow),transparent 70%);pointer-events:none}
+  .comm > *{position:relative;z-index:2}
+  .comm h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.8rem,3.2vw,2.5rem);line-height:1.1;letter-spacing:-.01em}
+  .comm-list{margin-top:24px;display:flex;flex-direction:column;gap:4px}
+  .comm-item{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--border)}
+  .comm-item:last-child{border-bottom:none}
+  .comm-item .ck{flex-shrink:0;width:26px;height:26px;border-radius:8px;background:rgba(124,132,240,0.12);display:grid;place-items:center;color:var(--accent);margin-top:2px}
+  .comm-item h4{font-size:1.02rem;font-weight:600;margin-bottom:4px}
+  .comm-item p{color:var(--text-dim);font-size:14px;line-height:1.5}
+  .comm-panel{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:30px;position:relative;z-index:2}
+  .comm-panel .ph{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-faint);font-weight:600;margin-bottom:18px}
+  .tier{display:flex;align-items:center;justify-content:space-between;padding:15px 0;border-bottom:1px solid var(--border)}
+  .tier:last-child{border-bottom:none}
+  .tier .name{font-weight:500;font-size:.98rem}
+  .tier .name span{display:block;font-size:12px;color:var(--text-faint);font-weight:400;margin-top:2px}
+  .tier .rate{font-family:var(--serif);font-size:1.4rem;font-weight:500;color:var(--accent);letter-spacing:-.01em}
+
+  /* apply */
+  .apply{background:var(--bg-2);border:1px solid var(--border);border-radius:24px;padding:52px;position:relative;overflow:hidden}
+  .apply::before{content:"";position:absolute;top:-50%;left:-10%;width:500px;height:500px;background:radial-gradient(circle,var(--accent-glow),transparent 70%);pointer-events:none}
+  .apply-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;position:relative;z-index:2}
+  .apply-grid h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.8rem,3vw,2.5rem);line-height:1.08;letter-spacing:-.01em}
+  .apply-grid .lead{color:var(--text-dim);margin-top:16px;font-size:1.02rem}
+  .apply-points{margin-top:26px;display:flex;flex-direction:column;gap:13px}
+  .apply-points li{list-style:none;display:flex;gap:11px;align-items:center;color:var(--text-dim);font-size:14.5px}
+  .apply-points svg{color:var(--accent);flex-shrink:0}
+  form{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .field{display:flex;flex-direction:column;gap:7px}
+  .field.full{grid-column:1/-1}
+  label{font-size:13px;font-weight:500;color:var(--text-dim)}
+  label .req{color:var(--accent)}
+  input,select,textarea{font-family:var(--sans);background:var(--bg);border:1px solid var(--border-strong);border-radius:11px;padding:13px 15px;color:var(--text);font-size:14.5px;transition:border-color .2s,box-shadow .2s;width:100%}
+  input::placeholder,textarea::placeholder{color:var(--text-faint)}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-glow)}
+  select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%239298A1' stroke-width='1.5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 15px center;cursor:pointer}
+  textarea{resize:vertical;min-height:92px}
+  .form-err{font-size:12px;color:#FF8A8A;display:none}
+  .field.invalid input,.field.invalid select{border-color:#FF8A8A}
+  .field.invalid .form-err{display:block}
+  .form-submit{grid-column:1/-1;display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:6px}
+  .form-note{font-size:12.5px;color:var(--text-faint)}
+  .form-success{display:none;text-align:center;padding:30px;position:relative;z-index:2}
+  .form-success.show{display:block}
+  .form-success .check{width:64px;height:64px;border-radius:50%;background:rgba(124,132,240,0.14);border:1px solid var(--accent);display:grid;place-items:center;margin:0 auto 20px;color:var(--accent)}
+  .form-success h3{font-family:var(--serif);font-weight:500;font-size:1.6rem;margin-bottom:10px}
+  .form-success p{color:var(--text-dim);max-width:42ch;margin:0 auto}
+
+  /* footer */
+  footer{border-top:1px solid var(--border);margin-top:40px;padding:56px 0 40px;position:relative;z-index:2}
+  .foot{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:36px}
+  .foot .blurb{color:var(--text-dim);font-size:14px;margin-top:16px;max-width:34ch;line-height:1.6}
+  .foot .tagline{color:var(--text-faint);font-size:12.5px;font-style:italic;margin-top:14px}
+  .foot h5{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-faint);margin-bottom:16px;font-weight:600}
+  .foot a{display:block;color:var(--text-dim);text-decoration:none;font-size:14px;margin-bottom:11px;transition:color .2s}
+  .foot a:hover{color:var(--accent)}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-top:48px;padding-top:26px;border-top:1px solid var(--border);color:var(--text-faint);font-size:13px}
+
+  @media(max-width:920px){
+    .cards,.stats,.partners{grid-template-columns:1fr 1fr}
+    .steps{grid-template-columns:1fr 1fr}
+    .step .line{display:none}
+    .comm,.apply-grid{grid-template-columns:1fr;gap:34px}
+    .foot{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:600px){
+    .wrap{padding:0 20px}
+    .nav-links{display:none}
+    .nav-links.open{display:flex;position:absolute;top:74px;left:0;right:0;flex-direction:column;gap:18px;background:rgba(10,10,36,0.96);backdrop-filter:blur(18px);padding:26px 24px;border-bottom:1px solid var(--border)}
+    .nav-toggle{display:block}
+    .cards,.stats,.partners,.steps,.foot{grid-template-columns:1fr}
+    form{grid-template-columns:1fr}
+    .apply,.comm{padding:30px 22px}
+    .hero{padding:54px 0 50px}
+    .sec{padding:62px 0}
+    .hero-trust{gap:16px}
+  }
+</style>
+</head>
+<body>
+<div class="bg-fx"></div>
+<div class="grid-lines"></div>
+
+<!-- ===== NAV ===== -->
+<header id="header">
+  <div class="wrap">
+    <nav class="nav">
+      <a href="https://www.acumen-financial.com" class="logo"><span class="mark">A</span> ACUMEN FINANCIAL <span class="seg">PARTNERS</span></a>
+      <div class="nav-links" id="navlinks">
+        <a href="#why">Why Partner</a>
+        <a href="#who">Who We Work With</a>
+        <a href="#commission">Commission</a>
+        <a href="#apply" class="btn btn-primary">Become a Partner</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow reveal" style="--d:0s"><span class="dot"></span> Partner Program · Brokers &amp; ISOs</div>
+    <h1 class="reveal" style="--d:.08s">Send us the deal. We'll <em>fund</em> it.</h1>
+    <p class="lead reveal" style="--d:.16s">Acumen's 28-program capital network gives your clients options most desks can't match: working capital, SBA, lines of credit, and commercial real estate. You bring the relationship; we bring the funding and the back office. Competitive splits, fast turnarounds, and a partner desk that picks up the phone.</p>
+    <div class="hero-cta reveal" style="--d:.24s">
+      <a href="#apply" class="btn btn-primary btn-lg">Become a partner →</a>
+      <a href="#commission" class="btn btn-ghost btn-lg">See the commission structure</a>
+    </div>
+    <div class="hero-trust reveal" style="--d:.32s">
+      <div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7C84F0" stroke-width="2"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg> 28 programs, one submission</div>
+      <div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7C84F0" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Funding in as little as 24 hours</div>
+      <div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7C84F0" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg> Competitive commission splits</div>
+      <div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7C84F0" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Dedicated partner desk</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STATS ===== -->
+<section class="sec" style="padding-top:30px">
+  <div class="wrap">
+    <div class="stats reveal">
+      <div class="stat"><div class="num">28<span></span></div><div class="lbl">Capital programs across the lending network</div></div>
+      <div class="stat"><div class="num">$5<span>M</span></div><div class="lbl">Maximum deal size on SBA and major facilities</div></div>
+      <div class="stat"><div class="num">575<span>+</span></div><div class="lbl">FICO entry, so fewer of your deals get declined</div></div>
+      <div class="stat"><div class="num">24<span>h</span></div><div class="lbl">Fastest funding window for working capital deals</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHY PARTNER ===== -->
+<section class="sec" id="why">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-tag">Why Partner With Acumen</span>
+      <h2>More approvals, faster funding, fewer dead deals.</h2>
+      <p>You've got relationships and deal flow. We've got the network and the infrastructure to convert them into funded files and paid commissions.</p>
+    </div>
+    <div class="cards">
+      <div class="card reveal">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h18M3 6h18M3 18h18"/></svg></div>
+        <h3>One submission, 28 programs</h3>
+        <p>Stop shopping a deal to ten lenders. Send it once. We match it across the full network and find the best fit for your client.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg></div>
+        <h3>Faster turnarounds</h3>
+        <p>Soft-pull, cash-flow-first underwriting means approvals in hours and funding in as little as 24 hours on working capital deals.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+        <h3>Competitive commissions</h3>
+        <p>Transparent splits paid on funded deals, with tier upgrades as your volume grows. No clawback games, no buried terms.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.9"/></svg></div>
+        <h3>A real partner desk</h3>
+        <p>Direct line to a dedicated rep who knows your deals. Status updates, deal structuring help, and a person who answers the phone.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
+        <h3>Save the declines</h3>
+        <p>Deal too thin on credit? Route it through Credit Optimization, get the file funding-ready, and come back. Fewer dead leads.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z"/></svg></div>
+        <h3>Your reputation, protected</h3>
+        <p>Transparent terms and honest underwriting mean the clients you refer stay happy, and keep coming back to you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHO WE WORK WITH ===== -->
+<section class="sec" id="who" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-tag">Who We Work With</span>
+      <h2>Built for every kind of dealmaker.</h2>
+    </div>
+    <div class="partners">
+      <div class="ptype reveal">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-3"/></svg></div>
+        <h4>Brokers</h4>
+        <p>Independent funding brokers placing working capital and term deals.</p>
+      </div>
+      <div class="ptype reveal">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <h4>ISOs</h4>
+        <p>Independent sales orgs looking for a reliable funding partner and clean splits.</p>
+      </div>
+      <div class="ptype reveal">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a7 7 0 00-4 12.7V17a2 2 0 002 2h4a2 2 0 002-2v-2.3A7 7 0 0012 2z"/><path d="M9 22h6"/></svg></div>
+        <h4>Consultants</h4>
+        <p>Business and financial consultants whose clients need capital to execute.</p>
+      </div>
+      <div class="ptype reveal">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.9"/><path d="M16 3.1A4 4 0 0116 11"/></svg></div>
+        <h4>Referral Partners</h4>
+        <p>Accountants, attorneys, and advisors who refer clients and earn on funded deals.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROCESS ===== -->
+<section class="sec" id="process">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-tag">How It Works</span>
+      <h2>From referral to paid in four steps.</h2>
+      <p>Simple, transparent, and built so you always know where your deal and your commission stand.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="line"></div><div class="dot"></div><div class="n">STEP 01</div><h4>Apply</h4><p>Submit the partner application below. We approve qualified partners fast and set up your commission agreement.</p></div>
+      <div class="step reveal"><div class="line"></div><div class="dot"></div><div class="n">STEP 02</div><h4>Submit Deals</h4><p>Send your client files through your partner desk. One submission gets matched across all 28 programs.</p></div>
+      <div class="step reveal"><div class="line"></div><div class="dot"></div><div class="n">STEP 03</div><h4>We Fund</h4><p>We underwrite, structure, and fund. You and your client get status updates the whole way through.</p></div>
+      <div class="step reveal"><div class="line"></div><div class="dot"></div><div class="n">STEP 04</div><h4>Get Paid</h4><p>Commission paid on funded deals per your agreement. Transparent, on time, no clawback games.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMMISSION ===== -->
+<section class="sec" id="commission">
+  <div class="wrap">
+    <div class="comm reveal">
+      <div>
+        <span class="sec-tag">Commission Structure</span>
+        <h2>You close it, you earn on it.</h2>
+        <div class="comm-list">
+          <div class="comm-item">
+            <div class="ck"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></div>
+            <div><h4>Paid on funded deals</h4><p>Commission is earned when your client funds. Clear, predictable, tied to real outcomes.</p></div>
+          </div>
+          <div class="comm-item">
+            <div class="ck"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></div>
+            <div><h4>Tiers that reward volume</h4><p>The more you fund, the better your split. Move up tiers as your monthly volume grows.</p></div>
+          </div>
+          <div class="comm-item">
+            <div class="ck"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></div>
+            <div><h4>Transparent terms</h4><p>Your agreement spells out the split before you send a single deal. No surprises, no buried fees.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="comm-panel">
+        <div class="ph">Partner tiers · illustrative</div>
+        <div class="tier"><div class="name">Referral Partner<span>Send the lead, we do the rest</span></div><div class="rate">Tier 1</div></div>
+        <div class="tier"><div class="name">Active Broker<span>Consistent monthly deal flow</span></div><div class="rate">Tier 2</div></div>
+        <div class="tier"><div class="name">Volume Partner<span>Top splits, priority desk</span></div><div class="rate">Tier 3</div></div>
+        <p style="color:var(--text-faint);font-size:11.5px;margin-top:18px;line-height:1.55">Specific commission percentages are set in your partner agreement based on partner type, deal structure, and volume. Talk to the partner desk for current rates.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== APPLY ===== -->
+<section class="sec" id="apply">
+  <div class="wrap">
+    <div class="apply reveal">
+      <div class="apply-grid" id="applyInner">
+        <div>
+          <h2>Become a partner.</h2>
+          <p class="lead">Tell us about your business and your deal flow. The partner desk will review your application and reach out within 24 hours to set up your agreement.</p>
+          <ul class="apply-points">
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Fast partner approval</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> No cost to join</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Dedicated desk from day one</li>
+          </ul>
+          <div style="margin-top:30px;padding-top:24px;border-top:1px solid var(--border)">
+            <div style="font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-faint);font-weight:600;margin-bottom:10px">Partner desk</div>
+            <a href="tel:7865097499" style="display:block;font-family:var(--serif);font-size:1.4rem;color:var(--text);text-decoration:none;font-weight:500;letter-spacing:-.01em">786-509-7499</a>
+            <a href="mailto:submissions@acumen-financial.com" style="color:var(--accent);font-size:13.5px;text-decoration:none">submissions@acumen-financial.com</a>
+          </div>
+        </div>
+        <form id="partnerForm" novalidate>
+          <div class="field">
+            <label>Full name <span class="req">*</span></label>
+            <input type="text" name="fullName" id="fullName" placeholder="Jordan Rivera" />
+            <span class="form-err">Please enter your name.</span>
+          </div>
+          <div class="field">
+            <label>Company name <span class="req">*</span></label>
+            <input type="text" name="company" id="company" placeholder="Rivera Capital Partners" />
+            <span class="form-err">Please enter your company.</span>
+          </div>
+          <div class="field">
+            <label>Email <span class="req">*</span></label>
+            <input type="email" name="email" id="email" placeholder="you@company.com" />
+            <span class="form-err">Please enter a valid email.</span>
+          </div>
+          <div class="field">
+            <label>Phone <span class="req">*</span></label>
+            <input type="tel" name="phone" id="phone" placeholder="(305) 555-0190" />
+            <span class="form-err">Please enter your phone number.</span>
+          </div>
+          <div class="field">
+            <label>Partner type <span class="req">*</span></label>
+            <select name="partnerType" id="partnerType">
+              <option value="">Select partner type</option>
+              <option value="Broker">Broker</option>
+              <option value="ISO">ISO</option>
+              <option value="Consultant">Consultant</option>
+              <option value="Referral Partner">Referral Partner</option>
+            </select>
+            <span class="form-err">Please select a partner type.</span>
+          </div>
+          <div class="field">
+            <label>Website</label>
+            <input type="text" name="website" id="website" placeholder="yourcompany.com" />
+          </div>
+          <div class="field">
+            <label>Monthly lead volume</label>
+            <input type="number" name="monthlyLeadVolume" id="monthlyLeadVolume" placeholder="e.g. 25" min="0" />
+          </div>
+          <div class="field">
+            <label>Industries served</label>
+            <input type="text" name="industriesServed" id="industriesServed" placeholder="e.g. retail, trucking, restaurants" />
+          </div>
+          <div class="field full">
+            <label>Tell us about your business</label>
+            <textarea name="message" id="message" placeholder="Your deal flow, the kinds of clients you work with, and what you're looking for in a funding partner."></textarea>
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="btn btn-primary btn-lg">Submit application →</button>
+            <span class="form-note">By submitting you agree to be contacted by Acumen Financial.</span>
+          </div>
+        </form>
+        <div class="form-success" id="formSuccess">
+          <div class="check"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></div>
+          <h3>Application received.</h3>
+          <p>Thanks. The partner desk will review your application and reach out within 24 hours to get you set up.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a href="https://www.acumen-financial.com" class="logo"><span class="mark">A</span> ACUMEN FINANCIAL</a>
+        <p class="blurb">A capital network built for operators and the partners who serve them. Founded in Miami, funding nationwide.</p>
+        <p class="tagline">Financial education is financial transformation.</p>
+      </div>
+      <div>
+        <h5>Partners</h5>
+        <a href="#why">Why Partner</a>
+        <a href="#who">Who We Work With</a>
+        <a href="#commission">Commission</a>
+        <a href="#apply">Become a Partner</a>
+      </div>
+      <div>
+        <h5>More from Acumen</h5>
+        <a href="https://funding.acumen-financial.com">Funding Programs</a>
+        <a href="https://credit.acumen-financial.com">Credit Optimization</a>
+        <a href="https://www.acumen-financial.com">Main Site</a>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <a href="tel:7865097499">786-509-7499</a>
+        <a href="mailto:submissions@acumen-financial.com">submissions@acumen-financial.com</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Acumen Financial. All rights reserved.</span>
+      <span>Built on secure cloud infrastructure.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 20));
+
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navlinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  window.addEventListener('load', () => {
+    document.querySelectorAll('.hero .reveal').forEach(el => el.classList.add('in'));
+  });
+
+  // ===== form =====
+  const form = document.getElementById('partnerForm');
+  const success = document.getElementById('formSuccess');
+  const emailRx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const setError = (field, hasError) => field.classList.toggle('invalid', hasError);
+
+  form.addEventListener('submit', async (ev) => {
+    ev.preventDefault();
+    let ok = true;
+    ['fullName','company','email','phone','partnerType'].forEach(n => {
+      const input = form.elements[n];
+      const field = input.closest('.field');
+      let bad = !input.value.trim();
+      if (n === 'email' && input.value.trim() && !emailRx.test(input.value)) bad = true;
+      setError(field, bad);
+      if (bad) ok = false;
+    });
+    if (!ok) return;
+
+    const payload = Object.fromEntries(new FormData(form).entries());
+    payload.source = 'partner-page';
+
+    /* ============================================================
+       HOOK UP YOUR BACKEND HERE
+       Point this at your existing API Gateway endpoint. The Lambda
+       can branch on payload.source === 'partner-page' to route
+       these to a partner/broker queue (and a separate SNS topic
+       or subject line) instead of the funding applicant flow.
+
+       try {
+         await fetch('https://bebmmz86w8.execute-api.us-east-1.amazonaws.com/apply', {
+           method: 'POST',
+           headers: { 'Content-Type': 'application/json' },
+           body: JSON.stringify(payload)
+         });
+       } catch (err) { console.error(err); }
+       ============================================================ */
+    console.log('Partner application payload:', payload);
+
+    form.style.display = 'none';
+    success.classList.add('show');
+    success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+</script>
+</body>
+</html>
