@@ -1,0 +1,90 @@
+<script>
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 20));
+
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navlinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  window.addEventListener('load', () => {
+    document.querySelectorAll('.hero .reveal').forEach(el => el.classList.add('in'));
+  });
+
+  const API_URL = 'https://bebmmz86w8.execute-api.us-east-1.amazonaws.com/partner';
+
+  const form = document.getElementById('partnerForm');
+  const success = document.getElementById('formSuccess');
+  const emailRx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  const setError = (field, hasError) => {
+    field.classList.toggle('invalid', hasError);
+  };
+
+  form.addEventListener('submit', async (ev) => {
+    ev.preventDefault();
+
+    let ok = true;
+
+    ['fullName', 'company', 'email', 'phone', 'partnerType'].forEach((name) => {
+      const input = form.elements[name];
+      const field = input.closest('.field');
+
+      let bad = !input.value.trim();
+
+      if (name === 'email' && input.value.trim() && !emailRx.test(input.value)) {
+        bad = true;
+      }
+
+      setError(field, bad);
+
+      if (bad) ok = false;
+    });
+
+    if (!ok) return;
+
+    const submitButton = form.querySelector('button[type="submit"]');
+    submitButton.disabled = true;
+    submitButton.textContent = 'Submitting...';
+
+    const payload = Object.fromEntries(new FormData(form).entries());
+    payload.source = 'partner-page';
+
+    try {
+      const response = await fetch(API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.message || 'Submission failed');
+      }
+
+      form.style.display = 'none';
+      success.classList.add('show');
+      success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    } catch (err) {
+      console.error('Partner submission error:', err);
+      alert('Something went wrong. Please try again.');
+      submitButton.disabled = false;
+      submitButton.textContent = 'Submit application →';
+    }
+  });
+</script>
